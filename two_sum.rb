@@ -17,7 +17,7 @@ def okay_two_sum?(arr,target_sum)   #Time Complexity: O( n*log(n) )    Space Com
     sorted_arr = arr.sort 
 
     (0...sorted_arr.length).each do |i|
-       match = (sorted_arr[0...i] + sorted_arr[(i+1)..-1]).bsearch { |x| x == target_sum - sorted_arr[i] }
+       match = (sorted_arr[0...i] + sorted_arr[(i+1)..-1]).bsearch { |x|  target_sum - sorted_arr[i] <=> x }
        return true unless match.nil?
     end
     false
