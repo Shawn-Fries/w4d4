@@ -26,17 +26,17 @@ end
 # p my_min_2(list)  # =>  -5
 
 
-def largest_contiguous_subsum(array) #O(n^2)
+def largest_contiguous_subsum(array) #O(n^3) in time and space
 
     subArrays = []
 
-    (0...array.length).each do |i| #O(n^2)
+    (0...array.length).each do |i| #O(n^3)
         (i...array.length).each do |j|
             subArrays << array[i..j]
         end
     end
    max = array.first
-   subArrays.each do |subArr| #O(n)
+   subArrays.each do |subArr| #O(n^2)
         max = subArr.sum if subArr.sum > max
     end
 
